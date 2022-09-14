@@ -38,15 +38,32 @@ INSTALLED_APPS = [
     #
     # Third-party
     'crispy_forms',
-    
+    'allauth',
+    'allauth.account',
+
     # Local
     'shop.apps.ShopConfig',
     'users.apps.UsersConfig',
 
-    #
 ]
 # Crispy_forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Allauth config
+SITE_ID = 1
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  # standart
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+# ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
