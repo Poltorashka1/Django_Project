@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #
+    'django.contrib.sites',
     # Third-party
     'crispy_forms',
     'allauth',
@@ -55,6 +55,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  # standart
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = 'home'
 ACCOUNT_LOGOUT_REDIRECT = 'home'
@@ -159,7 +160,7 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # Redirect from registration
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'home'
-
+PASSWORDCHANGE_REDIRECT_URL = 'home'
 #
 #
 #
