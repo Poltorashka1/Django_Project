@@ -2,9 +2,12 @@
 {% block title %}
     Home
 {% endblock title %}
-
-
 {% block content %}
+    {% for clothes in clothes_list %}
+        <img src="{{ clothes.clothes_image.url }}">
+        <h3><a href="{{ clothes.get_absolute_url }}">{{ clothes.name }}</a></h3>
+        <p>Price: {{ clothes.price }}</p>
+    {% endfor %}
 {% endblock content %}
 
 

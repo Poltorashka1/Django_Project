@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}{{ clothes_detail.name }}{% endblock title %}
+{% block content %}
+    <div class="shop-detail">
+        <h2>{{ clothes_detail.name }}</h2>
+        <img src="{{ clothes_detail.clothes_image.url }}">
+        <p>{{ clothes_detail.info }}</p>
+        <p>Price: <a href="#">{{ clothes_detail.price }}</a></p>
+    </div>
+{% endblock content %}
